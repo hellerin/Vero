@@ -1,0 +1,739 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Patua One', cursive;
+}
+
+.button {
+    padding: 16px;
+    background-color: lightskyblue;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: gray;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+                  /*BANNER*/
+.banner {
+    width: 100%;
+    height: 700px;
+    background-image: url(https://images.pexels.com/photos/5751043/pexels-photo-5751043.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-position-y: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+
+    display: flex;
+    justify-content: flex-end;
+
+    animation-name: banner;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+@keyframes banner {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        background-position-y: 20%;
+
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+        background-position-y: 30%;
+
+    }
+
+}
+
+.bannerCard {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: bannerCard;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+
+    animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+@keyframes bannerCard {
+    from {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+}
+
+.bannerContent {
+    width: 80%;
+}
+
+                     /*NAV*/
+.navButton {
+    width: 32px;
+    height: 32px;
+
+    position: fixed;
+    right: 32px;
+    top: 32px;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: skewX(-10deg);
+
+    transition: 0.3s;
+}
+
+#navButton {
+    display: none;
+}
+#navButton:checked ~ .navWrap {
+    transform: translateX(0);
+}
+
+#navButton:checked + .navButton {
+    justify-content: center;
+    transform: skewX(0);
+
+}
+#navButton:checked + .navButton > .navButtonElem {
+    background-color: rgb(61, 61, 63);
+}
+
+#navButton:checked + .navButton > .navButtonElem:first-child {
+    transform: rotate(45deg) translateY(50%);
+
+}
+#navButton:checked + .navButton > .navButtonElem:last-child {
+        display: none;
+}
+#navButton:checked + .navButton > .navButtonElem:nth-child(2) {
+
+transform: rotate(-45deg) translateY(-50%)
+}
+#navButton:checked ~ .navBGClose {
+    opacity: 0.7;
+    pointer-events: all;
+}
+.navBGClose {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    background-color: lightslategray;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s;
+}
+.navButtonElem {
+    background-color: lightskyblue;
+    width: 100%;
+    height: 20%;
+
+    border-radius: 50vh;
+    transition: 0.3s;
+}
+
+.navWrap {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+
+    height: 100%;
+    width: 20%;
+    background-color: lightslategray;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateX(500px);
+    transition: 0.3s;
+
+}
+
+.navContent {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.navContent > a {
+    margin: 16px;
+    padding: 16px;
+}
+
+                   /*ESIMENE LÕIK*/
+.section1 {
+    width: 100%;
+    height: 700px;
+    background-color: lightsteelblue;
+
+    position: relative;
+    margin-top: -180px;
+    z-index: -1;
+}
+
+.s1c {
+    width: 500px;
+    position: absolute;
+    transform: translate(50% -50%);
+    top: 50%;
+    right: 50%;
+    
+    animation-name: karusell;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.s1c1 {
+
+}
+
+.s1c2 {
+    animation-delay: 5s;
+}
+
+.s1c3 {
+    animation-delay: 10s;
+}
+
+@keyframes karusell {
+    0% {
+        opacity: 0;
+        transform: translate(70%);
+
+    }
+    5% {
+        opacity: 1;
+        transform: translateX(50%);
+
+    }
+    28% {
+        opacity: 1;
+        transform: translateX(50%);
+
+    }
+    33% {
+        opacity: 0;
+        transform: translateX(30%);
+
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-200px);
+
+    }
+}
+
+.s1h1, .s1p {
+    color: #ffffff;
+    text-align: center;
+}
+
+              /*TEINE LÕIK*/
+.section2 {
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.s2content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.s2content > h1 {
+    width:100%;
+    text-align: center;
+}
+
+.s2cards {
+    opacity: 0;
+    pointer-events: none;
+    
+    transition: 0.5s;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.s2c {
+    width: calc(100% / 3);
+    position: absolute;
+    height: 100%;
+    transform: translateY(-700px);
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 0;
+}
+.s2c1 {
+    left: 0;
+    background-image: url(https://images.unsplash.com/photo-1599455514601-f8a6e8328f6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80);
+    background-position-y: 40%;
+}
+
+.s2c2 {
+    left: calc(100% / 3);
+    background-image: url(https://images.unsplash.com/photo-1546706442-373624e9c90b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);
+    transition-delay: 0.2s;
+    background-position-y: 70%;
+    background-position-x: 40%;
+}
+
+.s2c3 {
+    left: calc(100% / 3 * 2);
+    background-image: url(https://images.pexels.com/photos/6059287/pexels-photo-6059287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-position-y: 84%;
+    transition-delay: 0.4s;
+}
+
+.s2button {
+    background-color: lightskyblue;
+    position: absolute;
+    left: 50%;
+    bottom: 64px;
+    transform: translateX(-50%);
+}
+
+#s2checkbox {
+    display: none;
+}
+
+#s2checkbox:checked ~ .s2cards {
+    opacity: 1;
+    pointer-events: all;
+}
+#s2checkbox:checked ~ .s2cards > .s2c {
+    transform: translateY(0);
+}
+
+#s2checkbox:checked ~ .s2cards > .s2c1 {
+    transition-delay: 0.2s;
+}
+
+#s2checkbox:checked ~ .s2cards > .s2c2 {
+    transition-delay: 0.4s;
+}
+
+#s2checkbox:checked ~ .s2cards > .s2c3 {
+    transition-delay: 0.6s;
+}
+
+.nupp {
+    text-decoration: none;
+    color: white
+}
+
+.nupp:hover {
+    color:rgb(58, 55, 58);
+}
+
+.nupp1 {
+    color: white;
+    text-decoration: none;
+}
+
+             /*HINNAKIRJA BANNER*/
+.bannerHi {
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    justify-content: center;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.esimene {
+    width: calc(100% / 3);
+    height: 100%;
+    background-image: url(https://images.unsplash.com/photo-1553464070-fd2939c519a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1974&q=80);
+    background-position-y: 80%;
+    background-position-x: 80%;
+    left: 0;
+
+    animation-name: esimene;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.teine {
+    width: calc(100% / 3);
+    height: 100%;
+    left: calc(100% / 3);
+
+    background-color: #98c1d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: teine;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.kolmas {
+    width: calc(100% / 3);
+    left: calc(100% / 3 * 2);
+    background-image: url(https://images.unsplash.com/photo-1569833450458-47c2914b423c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80);
+    background-size: cover;
+
+    animation-name: kolmas;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    
+}
+
+@keyframes esimene {
+    from {
+        clip-path: polygon(100% 0,100% 0, 100% 100%, 100% 100% );
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}    /*https://bennettfeely.com/clippy/*/
+
+@keyframes kolmas {
+    from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.teineSisu {
+    width: 100%;
+    padding: 16px;
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.sisuT , .sisuP {
+    text-align: center;
+}
+
+.button3 {
+    padding: 16px;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+    background-color: lightskyblue;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button3:hover {
+    background-color: gray;
+}
+
+          /* TEINE LÕIK HINNAKIRI*/
+
+.hinnakiriWrap {
+    width: 100%;
+    height: 800px;
+    background-color: #ffffff;
+    background-image: linear-gradient(360deg, #98c1d9, transparent);
+
+}
+        
+.hinnakiri {
+    color: black;
+}
+        
+.hinnakiri > h1 {
+    color: black;
+    text-align: center;
+}
+        
+table {
+    margin-bottom: 32px;
+    position: absolute;
+}
+table, tr {
+    width: 100%;
+    border-collapse: collapse;
+}
+        
+td {
+    border-bottom: 1px solid black;
+        
+}
+        
+.tooteNimi {
+    width: 60%;
+    height: 32px;
+}
+        
+.tooteHind {
+    width: 20%;
+    height: 64px; 
+    text-align: right;
+}
+
+.buttonid {
+    padding: 16px;
+    background-color: lightskyblue;
+    color: #ffffff;
+    display: inline-block;
+    margin: 25px;
+}
+
+.nupud {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.tableWrap {
+    position: absolute;
+    width: 50%;
+    opacity: 0;
+    left:50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+}
+
+.pealkiriS {
+    width: 100%;
+    text-align: center;
+}
+
+.pealkirjad {
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.button4 {
+    padding: 16px;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+    background-color: lightskyblue;
+    color: #ffffff;
+}
+
+
+.hind {
+    display: inline-block;
+    padding: 16px;
+    background-color: lightskyblue;
+    margin: 23px;
+    color: #ffffff;
+}
+
+.hind:hover {
+    background-color: #457b9d;
+}
+
+.radio {
+    display: none;
+    
+}
+.wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#StAnton:checked + label {
+    background-color: #457b9d;
+}
+
+#StAnton:checked ~ .pealkirjad > .tW1 {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+#StAnton:checked ~ .pealkirjad > .tW2 {
+    opacity: 0; 
+    transform: translateX(-40%);
+}
+#StAnton:checked ~ .pealkirjad > .tW3 {
+    opacity: 0;
+    transform: translateX(-40%);
+}
+
+#Laax:checked + label {
+    background-color: #457b9d;
+}
+
+#Laax:checked ~ .pealkirjad > .tW1 {
+    opacity: 0;
+    transform: translateX(-60%);
+}
+
+#Laax:checked ~ .pealkirjad > .tW2 {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+#Laax:checked ~ .pealkirjad > .tW3 {
+    opacity: 0;
+    transform: translateX(-40%);
+}
+
+#Gudauri:checked + label {
+    background-color: #457b9d;
+}
+
+#Gudauri:checked ~ .pealkirjad > .tW1 {
+    opacity: 0;
+    transform: translateX(-60%);
+}
+
+#Gudauri:checked ~ .pealkirjad > .tW2 {
+    opacity: 0;
+    transform: translateX(-60%);
+}
+
+#Gudauri:checked ~ .pealkirjad > .tW3 {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+/*KOLMAS LÕIK*/
+.alumineWrap {
+    width: 100%;
+    height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(180deg, #98c1d9, #fff);
+}
+
+.button2 {
+    padding: 16px;
+    background-color: lightskyblue;
+    color: #ffffff;
+    display: inline-block;
+    position: absolute;
+    margin-top: 900px;
+}
+
+.button2:hover {
+    background-color: gray;
+}
+
+.aluminePealkiri {
+    color: white;
+    height: 130px;
+
+    background-color: #98c1d9;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+.contentWrap{
+    width: 100%;
+    height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(180deg, #98c1d9, rgb(255, 249, 249));
+}
+
+.s3c1 {
+    background-image: url(https://images.pexels.com/photos/4969845/pexels-photo-4969845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    width: calc(100% /3);
+    height: 600px;
+    background-size: cover;
+    background-position: 10% 5%;
+    transition-duration: 0,3s;
+}
+
+.s3c2 {
+    background-image: url(https://images.pexels.com/photos/1417647/pexels-photo-1417647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
+    width: calc(100% /3);
+    height: 600px;
+    background-size: cover;
+}
+
+.s3c3 {
+    background-image:url(https://images.pexels.com/photos/2852350/pexels-photo-2852350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    width: calc(100% /3);
+    height: 600px;
+    background-size: cover;
+    
+}
+
+.texthide {
+    opacity: 0;
+    transition: 0.4s;
+    transform: translateY(400px);
+}
+
+.s3c:hover .texthide {
+    opacity: 1;
+    transform: translateY(600px);
+}
+
+.s3c1:hover {
+    transform: scale(1,1);
+    transition: ease-in-out 0.4s;
+}
+
+.s3c2:hover {
+    transform: scale(1,1);
+    transition: ease-in-out 0.4s;
+}
+
+.s3c3:hover {
+    transform: scale(1,1);
+    transition: ease-in-out 0.4s;
+}
+
+
+
+
+
+
+
